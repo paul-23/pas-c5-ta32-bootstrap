@@ -1,0 +1,20 @@
+.form-control {
+    margin: 0px 5px;
+}
+
+.banner-principal {
+    background-color: #eeeeee;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding: 50px !important;
+}
+
+.banner-principal h1 {
+    font-size: 55px;
+}
+
+.img-articulo {
+    background-color: #eeeeee;
+    height: 200px;
+    width: 100%;
+}

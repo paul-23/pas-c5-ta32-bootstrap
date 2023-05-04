@@ -1,0 +1,20 @@
+body {
+    background-color: whitesmoke !important;
+}
+
+.row {
+    margin-bottom: 20px;
+}
+
+.titulo {
+    border-bottom: 1px solid #d1d1d1;
+    margin-bottom: 20px;
+    color: #379ffe;
+    padding: 20px;
+}
+
+.iconos {
+    font-size: 30px;
+    color: #379ffe;
+}
+

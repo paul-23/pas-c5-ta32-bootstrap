@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario Bootstrap - Ejercicio 02</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <!-- Enlace a las librerias de Bootsrap (CSS) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <!-- Enlace a las librerias de Bootsrap (JS) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Enlace a las librerias de iconos Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/de15ee7d73.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="titulo">Listado de Usuarios del Sistema</h1>
+      <div class="container paginacion">
+        <div class="float-start inline">
+          <p>Mostrando</p>
+          <div class="dropdown">
+            <button
+              class="btn btn-outline-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              10
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">10</a>
+            </div>
+          </div>
+          <p>registros</p>
+        </div>
+        <div class="float-end inline">
+          <p>Buscar: </p>
+          <input type="text" class="form-control" />
+        </div>
+      </div>
+      <table
+        id="tabla"
+        class="table table-striped table-bordered dt-responsive nowrap"
+        cellspacing="0"
+        width="100%"
+      >
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Sector</th>
+            <th scope="col">Ultimo Ingreso</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <p>1</p>
+            </td>
+            <td>
+              <p>admin</p>
+            </td>
+            <td>
+              <p>Administración</p>
+            </td>
+
+            <td>
+              <p>2018-01-17 12:49:56</p>
+            </td>
+
+            <td>
+              <div class="btn-group">
+                <a
+                  href="#"
+                  class="btn btn-primary btn-sm"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  ><i class="fas fa-eye"></i
+                ></a>
+
+                <a href="#" class="btn btn-success btn-sm">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="#" class="btn btn-danger btn-sm">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>2</p>
+            </td>
+            <td>
+              <p>marcelo</p>
+            </td>
+            <td>
+              <p>Administración</p>
+            </td>
+
+            <td>
+              <p>2018-02-24 13:38:56</p>
+            </td>
+
+            <td>
+              <div class="btn-group">
+                <a
+                  href="#"
+                  class="btn btn-primary btn-sm"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  ><i class="fas fa-eye"></i
+                ></a>
+
+                <a href="#" class="btn btn-success btn-sm">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="#" class="btn btn-danger btn-sm">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>3</p>
+            </td>
+            <td>
+              <p>eduardo</p>
+            </td>
+            <td>
+              <p>Produción</p>
+            </td>
+
+            <td>
+              <p>2018-02-08 10:54:36</p>
+            </td>
+
+            <td>
+              <div class="btn-group">
+                <a
+                  href="#"
+                  class="btn btn-primary btn-sm"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  ><i class="fas fa-eye"></i
+                ></a>
+
+                <a href="#" class="btn btn-success btn-sm">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="#" class="btn btn-danger btn-sm">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>4</p>
+            </td>
+            <td>
+              <p>jorge</p>
+            </td>
+            <td>
+              <p>Administración</p>
+            </td>
+
+            <td>
+              <p>2018-02-08 09:43:26</p>
+            </td>
+
+            <td>
+              <div class="btn-group">
+                <a
+                  href="#"
+                  class="btn btn-primary btn-sm"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  ><i class="fas fa-eye"></i
+                ></a>
+
+                <a href="#" class="btn btn-success btn-sm">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="#" class="btn btn-danger btn-sm">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>7</p>
+            </td>
+            <td>
+              <p>gaston</p>
+            </td>
+            <td>
+              <p>Produción</p>
+            </td>
+
+            <td>
+              <p>2018-02-20 17:25:45</p>
+            </td>
+
+            <td>
+              <div class="btn-group">
+                <a
+                  href="#"
+                  class="btn btn-primary btn-sm"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  ><i class="fas fa-eye"></i
+                ></a>
+
+                <a href="#" class="btn btn-success btn-sm">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="#" class="btn btn-danger btn-sm">
+                  <i class="fas fa-trash-alt"></i>
+                </a>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="container paginacion">
+        <div class="float-start">
+          <p>Mostrando del 1 al 5 de un total de 5 registros</p>
+        </div>
+        <div class="float-end">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#">Anterior</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link active" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">Siguiente</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="container">
+        <button type="button" class="btn btn-primary">Agregar Usuario</button>
+      </div>
+    </div>
+  </body>
+</html>
