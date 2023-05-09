@@ -3,7 +3,8 @@ let currentNumber = '';
 let previousNumber = '';
 let operator = '';
 let string = '';
-let calculationFinished = false;
+const resultScreen = document.getElementById('result');
+const stringScreen = document.getElementById('string');
 
 clearAll();
 
@@ -18,10 +19,10 @@ function clearScreen() {
 
 // Limpia todo
 function clearAll() {
+    clearScreen();
     currentNumber = '';
     previousNumber = '';
     operator = '';
-    calculationFinished = false;
     updateScreenString('0');
     updateScreen('');
     stringFormat();
@@ -29,9 +30,7 @@ function clearAll() {
 
 // Borra el último número ingresado
 function clearPrevious() {
-    if (calculationFinished) {
-        clearAll();
-    } else if (currentNumber.length > 1) {
+    if (currentNumber.length > 1) {
         currentNumber = currentNumber.slice(0, -1);
         string = string.slice(0, -1);
         updateScreenString(string);
@@ -43,25 +42,29 @@ function clearPrevious() {
 }
 
 function stringFormat() {
-    document.getElementById("string").style.color = "#000";
-    document.getElementById("string").style.fontSize = "35px";
+    stringScreen.style.color = "#000";
+    stringScreen.style.fontSize = "35px";
 }
 
 // Actualiza la pantalla con el resultado
 function updateScreen(number) {
-    document.getElementById('result').value = number;
+    resultScreen.value = number;
 }
 
 // Actualiza la pantalla con la cadena de operaciones
 function updateScreenString(string) {
-    document.getElementById('string').value = string;
+    stringScreen.value = string;
+}
+
+function chekError() {
+    if (string === 'Infinity' || currentNumber === 'Infinity' || previousNumber === 'Infinity') {
+        clearAll();
+    }
 }
 
 // Inserta un número
 function insertNumber(number) {
-    if (calculationFinished) {
-        clearAll();
-    }
+    chekError();
     currentNumber += number;
     string += number;
     updateScreenString(string);
@@ -69,58 +72,72 @@ function insertNumber(number) {
 
 // Inserta un operador
 function insertOperator(op) {
-    if (calculationFinished) {
-        calculationFinished = false;
-    }
-    if (operator) {
-        string = string.slice(0, -1); // Remueve el operador anterior de la cadena de operaciones
+    chekError();
+    if (operator && currentNumber !== '') {
+        if (previousNumber === '') {
+            previousNumber = currentNumber;
+        } else {
+            calculate();
+            previousNumber = currentNumber;
+        }
+        currentNumber = '';
+        string = previousNumber + op;
+        updateScreenString(string);
+    } else if (previousNumber !== '') {
+        if (/\+|\-|\*|\//.test(string.slice(-1))) {
+            string = string.slice(0, -1) + op;
+        } else {
+            string += op;
+        }
+        updateScreenString(string);
     }
     operator = op;
-    string += operator;
-    if (currentNumber) { // Si hay un número actual, lo guarda como número anterior
+    if (currentNumber !== '') {
         previousNumber = currentNumber;
         string = previousNumber + operator;
         currentNumber = '';
+        updateScreenString(string);
     }
-    updateScreenString(string);
 }
 
 // Calcula el resultado
 function calculate() {
     let result;
-    switch (operator) {
-        case '+':
-            result = parseFloat(previousNumber) + parseFloat(currentNumber);
-            break;
-        case '-':
-            result = parseFloat(previousNumber) - parseFloat(currentNumber);
-            break;
-        case '*':
-            result = parseFloat(previousNumber) * parseFloat(currentNumber);
-            break;
-        case '/':
-            result = parseFloat(previousNumber) / parseFloat(currentNumber);
-            break;
-        case '%':
-            result = parseFloat(previousNumber) % parseFloat(currentNumber);
-            break;
-        case '1/x':
-            result = 1 / parseFloat(currentNumber);
-            break;
-        case 'sqrt':
-            result = Math.sqrt(parseFloat(currentNumber));
-            break;
-        default:
-            break;
+    if (previousNumber !== '' && currentNumber !== '') {
+        switch (operator) {
+            case '+':
+                result = parseFloat(previousNumber) + parseFloat(currentNumber);
+                break;
+            case '-':
+                result = parseFloat(previousNumber) - parseFloat(currentNumber);
+                break;
+            case '*':
+                result = parseFloat(previousNumber) * parseFloat(currentNumber);
+                break;
+            case '/':
+                result = parseFloat(previousNumber) / parseFloat(currentNumber);
+                break;
+            case '%':
+                result = parseFloat(previousNumber) % parseFloat(currentNumber);
+                break;
+            case '1/x':
+                result = 1 / parseFloat(currentNumber);
+                break;
+            case 'sqrt':
+                result = Math.sqrt(parseFloat(currentNumber));
+                break;
+            default:
+                break;
+        }
     }
+
     currentNumber = result.toString();
     updateScreen(currentNumber);
     operator = '';
     previousNumber = '';
     string = '';
-    calculationFinished = true;
-    document.getElementById("string").style.color = "#8d8d8d";
-    document.getElementById("string").style.fontSize = "25px";
+    stringScreen.style.color = "#8d8d8d";
+    stringScreen.style.fontSize = "25px";
 }
 
 // Cambia el signo del número
