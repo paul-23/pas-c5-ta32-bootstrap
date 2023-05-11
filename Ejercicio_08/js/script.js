@@ -1,7 +1,6 @@
 // Mostramos el modal con información aidiconal
-$( document ).ready(function() {
-    $('#myModal').modal('toggle')
-});
+var myModal = new bootstrap.Modal(document.getElementById('myModal'));
+myModal.show();
 
 //Variables globales
 let currentNumber = '';
