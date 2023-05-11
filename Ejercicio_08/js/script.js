@@ -1,3 +1,8 @@
+// Mostramos el modal con información aidiconal
+$( document ).ready(function() {
+    $('#myModal').modal('toggle')
+});
+
 //Variables globales
 let currentNumber = '';
 let previousNumber = '';
